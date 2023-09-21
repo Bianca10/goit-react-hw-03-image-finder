@@ -4,7 +4,6 @@ import ImageGallery from '../components/ImageGallery';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
 import { fetchImages } from './api';
-import './styles.css';
 
 const App = () => {
   const [query, setQuery] = useState('');
@@ -33,6 +32,10 @@ const App = () => {
     setQuery(newQuery);
     setPage(1);
     setImages({ images: [], loadMore: true });
+    fetchImages(newQuery, 1).then(data => {
+      const { hits, totalHits } = data;
+      setImages({ images: hits, loadMore: totalHits > 12 });
+    });
   };
 
   const handleLoadMore = () => {

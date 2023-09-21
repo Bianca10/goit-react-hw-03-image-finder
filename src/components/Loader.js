@@ -1,16 +1,18 @@
 import React from 'react';
-import { Audio } from 'react-loader-spinner';
+import Loader from 'react-loader-spinner';
 
-export default function Loader() {
+const CustomLoader = () => {
   return (
-    <Audio
-      height="80"
-      width="80"
-      radius="9"
-      color="green"
-      ariaLabel="loading"
-      wrapperStyle
-      wrapperClass
-    />
+    <div className="loader-container">
+      <Loader
+        type="TailSpin"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000}
+      />
+    </div>
   );
-}
+};
+
+export default CustomLoader;
