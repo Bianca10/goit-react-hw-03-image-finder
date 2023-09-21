@@ -5,9 +5,8 @@ const ImageGallery = ({ images, onImageClick }) => {
   if (!Array.isArray(images) || images.length === 0) {
     return null;
   }
-
   return (
-    <ul className="gallery">
+    <ul className="imageGallery">
       {images.map(image => (
         <ImageGalleryItem
           key={image.id}
@@ -20,5 +19,4 @@ const ImageGallery = ({ images, onImageClick }) => {
     </ul>
   );
 };
-
 export default ImageGallery;
